@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import NavBar from "./NavBar";
+import VendingMachine from "./VendingMachine";
+import Grapes from "./Grapes";
+import CheeseAndCrackers from "./CheeseAndCrackers";
+import MixedNuts from "./MixedNuts";
+
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavBar />
+        <Route exact path="/cheese-and-crackers">
+          <CheeseAndCrackers />
+        </Route>
+        <Route exact path="/grapes">
+          <Grapes />
+        </Route>
+        <Route exact path="/mixed-nuts">
+          <MixedNuts />
+        </Route>
+        <Route exact path="/">
+          <VendingMachine />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }
